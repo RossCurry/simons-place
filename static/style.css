@@ -28,6 +28,11 @@
 .back {
   background-color: rgb(233, 167, 112);
 }
+
+.front:hover{
+  opacity: 0;
+}
+
 .cardImg {
   /* object-fit: contain;
   overflow: hidden; */
