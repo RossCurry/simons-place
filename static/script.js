@@ -39,13 +39,11 @@ async function main(params) {
     // card.classList.add("card")
     const cardSide = document.createElement("div")
     cardSide.classList.add(sideOfCard)
-    if (sideOfCard === "back"){
-      const img = document.createElement("img")
-      img.classList.add("cardImg")
-      img.setAttribute("src", optimizedUrl)
-      cardSide.appendChild(img)
-      
-    }
+    const img = document.createElement("img")
+    img.setAttribute("src", optimizedUrl)
+    cardSide.appendChild(img)
+    img.classList.add("cardImg")
+
     if (sideOfCard === "front"){
       // console.log('imageInfo', imageInfo)
       const textContainer = document.createElement("div")
@@ -64,6 +62,7 @@ async function main(params) {
       textContainer.appendChild(cardText)
       cardSide.appendChild(textContainer)
     }
+    
     // card.appendChild(cardSide)
     cardSide.addEventListener("click", function getCardInfo(e) {
       console.log("imageInfo", imageInfo)
@@ -75,13 +74,17 @@ async function main(params) {
     const cardContainer = document.getElementById("cardContainer")
     console.log("images of dad", imagesOfDad.getAllImages().length)
     for (const imageInfo of imagesOfDad.getAllImages()){
+      // card frame is to help maintain flip effect
+      const cardFrame = document.createElement("div")
+      cardFrame.classList.add("cardFrame")
       const card = document.createElement("div")
       card.classList.add("card")
       const cardBack = createCard("back", imageInfo)
       const cardFront = createCard("front", imageInfo)
       card.appendChild(cardBack)
       card.appendChild(cardFront)
-      cardContainer.appendChild(card)
+      cardFrame.appendChild(card)
+      cardContainer.appendChild(cardFrame)
     }
   }
 
