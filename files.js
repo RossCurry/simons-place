@@ -29,10 +29,8 @@ export async function getUploadCareFiles() {
    */
   const pubKey = process.env.PUBLIC_KEY;
   const secKey = process.env.SECRET_KEY;
-  // console.log(`Uploadcare.Simple ${pubKey}:${secKey}`);
   const urlApi = 'https://api.uploadcare.com/files/?stored=true';
   const date = new Date(Date.now()).toGMTString();
-  // console.log('date', date);
   const headers = {
     Authorization: `Uploadcare.Simple ${pubKey}:${secKey}`,
     'Content-type': 'application/json',

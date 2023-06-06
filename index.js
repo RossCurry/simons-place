@@ -28,7 +28,6 @@ const server = http.createServer(async (req, res) => {
     }
 
     case '/files': {
-      // const files = await fs.readFile(`./static/script.js`)
       // const files = await getLocalFiles();
       const files = await getUploadCareFiles();
       console.log('files.length', files.length)
@@ -41,10 +40,6 @@ const server = http.createServer(async (req, res) => {
       res.end(`Request url: ${req.url} - not recognised`);
       break;
   }
-  // console.log('staticFiles', staticFiles)
-  // const fileRequest = await fs.readFile(`./static/${req.url}`)
-  // console.log(req)
-  // res.end(JSON.stringify(files))
   res.end();
 });
 
