@@ -58,18 +58,14 @@ export async function getUploadCareFiles() {
       id: fileInfo.uuid
     };
   });
-  console.log('Returning uploadcare images', linksNamesDates);
-
+  console.info('Returning uploadcare images');
   return linksNamesDates.sort((a,b) => b.date - a.date);
 }
 
 function parseDate(fileName) {
   const dateString = fileName.slice(6, -13);
   const timeString = fileName.slice(-12, -4).replaceAll('-', ':');
-  console.log('dateString', `${dateString}T${timeString}`)
-  const date = new Date(`${dateString}T${timeString}`);
-  console.log('date', date)
-  return date
+  return new Date(`${dateString}T${timeString}`);
 }
 
 /**

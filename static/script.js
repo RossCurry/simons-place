@@ -54,10 +54,8 @@ function addCards() {
 
 function createCard(sideOfCard, imageInfo) {
   const ucareUrl = "https://ucarecdn.com/"
-  const uploadCareOptimization = `-/preview/600x800/-/format/auto/-/quality/smart/`
+  const uploadCareOptimization = `-/preview/300x600/-/format/auto/-/quality/smart/`
   const optimizedUrl = ucareUrl + imageInfo.id + "/" + uploadCareOptimization 
-  // const card = document.createElement("div")
-  // card.classList.add("card")
   const cardSide = document.createElement("div")
   cardSide.classList.add(sideOfCard)
   const img = document.createElement("img")

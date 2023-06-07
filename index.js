@@ -4,9 +4,8 @@ import { getLocalFiles, getUploadCareFiles } from './files.js';
 import 'dotenv/config'
 
 const server = http.createServer(async (req, res) => {
-  console.log('req.url', req.url);
+  console.info('req.url', req.url);
 
-  const staticFiles = await fs.readdir(`./static/`);
   switch (req.url) {
     case '/': {
       const html = await fs.readFile(`./static/index.html`);
@@ -30,7 +29,6 @@ const server = http.createServer(async (req, res) => {
     case '/files': {
       // const files = await getLocalFiles();
       const files = await getUploadCareFiles();
-      console.log('files.length', files.length)
       res.writeHead(200, { 'Content-Type': 'application/json' });
       res.write(JSON.stringify(files));
       break;
@@ -44,5 +42,5 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(process.env.PORT, `0.0.0.0`, () => {
-  console.log('listening on port 3000');
+  console.info(`listening on port: ${process.env.PORT}`);
 });
